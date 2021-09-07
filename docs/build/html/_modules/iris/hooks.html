@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>iris.hooks &mdash; iris 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="/home/khuyen/kedro_example/venv/lib/python3.8/site-packages/kedro/framework/html/_static/css/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="/home/khuyen/kedro_example/venv/lib/python3.8/site-packages/kedro/framework/html/_static/css/qb1-sphinx-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="/home/khuyen/kedro_example/venv/lib/python3.8/site-packages/kedro/framework/html/_static/css/theme-overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> iris
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">iris</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../iris.html">iris package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../iris.pipelines.html">iris.pipelines package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#module-iris.cli">iris.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#module-iris.hooks">iris.hooks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#module-iris.pipeline_registry">iris.pipeline_registry module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../iris.html#module-iris.settings">iris.settings module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>iris.hooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.hooks</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2021 QuantumBlack Visual Analytics Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="c1"># EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES</span>
+<span class="c1"># OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND</span>
+<span class="c1"># NONINFRINGEMENT. IN NO EVENT WILL THE LICENSOR OR OTHER CONTRIBUTORS</span>
+<span class="c1"># BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN</span>
+<span class="c1"># ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF, OR IN</span>
+<span class="c1"># CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+<span class="c1">#</span>
+<span class="c1"># The QuantumBlack Visual Analytics Limited (&quot;QuantumBlack&quot;) name and logo</span>
+<span class="c1"># (either separately or in combination, &quot;QuantumBlack Trademarks&quot;) are</span>
+<span class="c1"># trademarks of QuantumBlack. The License does not grant you any right or</span>
+<span class="c1"># license to the QuantumBlack Trademarks. You may not use the QuantumBlack</span>
+<span class="c1"># Trademarks or any confusingly similar mark as a trademark for your product,</span>
+<span class="c1"># or use the QuantumBlack Trademarks in any other manner that might cause</span>
+<span class="c1"># confusion in the marketplace, including but not limited to in advertising,</span>
+<span class="c1"># on websites, or on software.</span>
+<span class="c1">#</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;Project hooks.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">kedro.config</span> <span class="kn">import</span> <span class="n">ConfigLoader</span>
+<span class="kn">from</span> <span class="nn">kedro.framework.hooks</span> <span class="kn">import</span> <span class="n">hook_impl</span>
+<span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">DataCatalog</span>
+<span class="kn">from</span> <span class="nn">kedro.versioning</span> <span class="kn">import</span> <span class="n">Journal</span>
+
+
+<div class="viewcode-block" id="ProjectHooks"><a class="viewcode-back" href="../../iris.html#iris.hooks.ProjectHooks">[docs]</a><span class="k">class</span> <span class="nc">ProjectHooks</span><span class="p">:</span>
+<div class="viewcode-block" id="ProjectHooks.register_config_loader"><a class="viewcode-back" href="../../iris.html#iris.hooks.ProjectHooks.register_config_loader">[docs]</a>    <span class="nd">@hook_impl</span>
+    <span class="k">def</span> <span class="nf">register_config_loader</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">conf_paths</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">env</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">extra_params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConfigLoader</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ConfigLoader</span><span class="p">(</span><span class="n">conf_paths</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ProjectHooks.register_catalog"><a class="viewcode-back" href="../../iris.html#iris.hooks.ProjectHooks.register_catalog">[docs]</a>    <span class="nd">@hook_impl</span>
+    <span class="k">def</span> <span class="nf">register_catalog</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">catalog</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
+        <span class="n">credentials</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+        <span class="n">load_versions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+        <span class="n">save_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">journal</span><span class="p">:</span> <span class="n">Journal</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataCatalog</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">DataCatalog</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span>
+            <span class="n">catalog</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">load_versions</span><span class="p">,</span> <span class="n">save_version</span><span class="p">,</span> <span class="n">journal</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, QuantumBlack Visual Analytics Limited.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
