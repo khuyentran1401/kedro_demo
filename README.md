@@ -2,7 +2,8 @@
 
 ## Overview
 
-This is your new Kedro project, which was generated using `Kedro 0.17.4`.
+This is your new Kedro project, which was generated using `Kedro 0.17.4`. This is the demo of the article [Kedro — A Python Framework for Reproducible Data Science Project](https://towardsdatascience.com/kedro-a-python-framework-for-reproducible-data-science-project-4d44977d4f04).
+
 
 Take a look at the [Kedro documentation](https://kedro.readthedocs.io) to get started.
 
